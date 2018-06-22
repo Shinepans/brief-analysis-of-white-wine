@@ -129,3 +129,23 @@ print mean_acidities
 [(3, 7.535714285714286), (4, 7.052173913043476), (5, 6.907843137254891), (6, 6.812085769980511), (7, 6.755844155844158), (8, 6.708130081300811), (9, 7.5)]
 ```
 
+## 缺失处理
+
+填入均值
+
+eg.  age部分数据缺确实
+
+```
+import numpy as np
+age_without_missing = []
+for i in range(len(age)):
+    if age[i] != '':
+        age[i] = float(age[i])
+        age_without_missing.append(float(age[i]))
+age_mean = round(np.mean(age_without_missing), 3)
+
+for i in range(len(age)):
+    if age[i] == '':
+        age[i] = age_mean
+age_filled = age
+```
